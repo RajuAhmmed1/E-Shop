@@ -1,0 +1,5 @@
+button:disabled {
+  background-color: #d1d5db; /* Light gray background */
+  cursor: not-allowed;
+  opacity: 0.5;
+}
