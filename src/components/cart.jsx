@@ -10,7 +10,7 @@ function Cart() {
 
   return (
     <>
-      <div className="flex flex-row gap-4 justify-center w-full py-10 flex-wrap">
+      <div className="w-[500px] flex flex-col gap-4 justify-center items-center mx-auto lg:w-[600px] py-10 ">
         {cartProduct.map((item) => (
           <div
             className="flex flex-row items-center gap-5 justify-center bg-lime-700 py-5 px-20"

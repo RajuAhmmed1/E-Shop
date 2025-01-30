@@ -3,6 +3,7 @@ import { Nav } from './components/nav'
 import Products from './components/products'
 import Cart from './components/cart'
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   const [dark, setDark] = useState(false)
@@ -11,13 +12,14 @@ function App() {
   }
 
   return (
-    <>
+    <Router>
       <Nav dark={dark} toggle={toggle} />
-
-      <Products />
-      <hr />
-      <Cart />
-    </>
+      <Routes>
+      <Route path="/" element={<Products />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/products' element={<Products />} />
+      </Routes>
+    </Router>
   )
 }
 

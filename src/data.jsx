@@ -71,7 +71,7 @@ const data = {
       },
       {
         item_name: 'Cart',
-        link: '#',
+        link: '/cart',
       },
     ],
   },
