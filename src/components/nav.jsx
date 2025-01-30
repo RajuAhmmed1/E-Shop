@@ -1,9 +1,18 @@
 import data from '../data'
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
+import { useContext } from 'react'
+import { Link } from 'react-router'
+import { Store } from './cartContext'
 
 export function Nav({ dark, toggle }) {
+
+const {cartProduct}=useContext(Store)
+
+
+
   return (
+   
     <div
       className={clsx(
         'w-full',
@@ -17,22 +26,26 @@ export function Nav({ dark, toggle }) {
       )}
     >
       <div>
-        <h2 className="text-2xl">{data.nav.brand}</h2>
+        <h2 className="text-2xl"><Link to ="/">{data.nav.brand}</Link></h2>
       </div>
       <div className="flex flex-row gap-4">
         {data.nav.nav_item.map((item) => (
           <li key={item.item_name} className="list-none gap-4">
-            <a
+            <Link
               className={`text-[20px] text-2xl ${
                 dark ? 'text-white' : 'text-blue-100' // Conditional text color
               }`}
-              href={`${item.link}`}
+              to={`${item.link}`}
             >
               {item.item_name}
-            </a>
+            </Link>
           </li>
+         
         ))}
-        <span className="px-4 font-bold text-red-600 bg-amber-100 rounded-4xl"></span>
+       <span className="px-4 font-bold text-red-600 bg-amber-100 rounded-4xl">
+  {cartProduct.reduce((total, item) => total + item.quantity, 0)}
+</span>
+
         <label className="relative inline-flex items-center cursor-pointer">
           <input
             type="checkbox"
