@@ -1,21 +1,20 @@
-import data from '../data'
 import { useContext } from 'react'
-import { Store } from './cartContext'
+import { Store } from './productContext'
 
 function Products() {
-  const { cartProduct, addToCart } = useContext(Store)
+  const { cartProduct, addToCart, productsList } = useContext(Store)
 
   return (
     <div className="w-full flex flex-row py-5 items-center justify-evenly flex-wrap gap-4 px-4">
-      {data.products.map((product) => {
-        const cartItem = cartProduct.find((item) => item._id === product._id)
+      {productsList.map((product) => {
+        const cartItem = cartProduct.find((item) => item.id === product.id)
         const quantityInCart = cartItem ? cartItem.quantity : 0
-        const remainingStock = product.countInStock - quantityInCart
+        const remainingStock = product.stock - quantityInCart
         const isOutOfStock = remainingStock <= 0
 
         return (
           // This is the implicit return inside .map()
-          <div key={product._id} className="bg-lime-700 p-4 rounded-[5px]">
+          <div key={product.id} className="bg-lime-700 p-4 rounded-[5px]">
             <div>
               <img
                 className="w-[250px]"
