@@ -71,7 +71,16 @@ const data = {
       },
       {
         item_name: 'Cart',
-        link: '/cart',
+        link: 'cart',
+      },
+      {
+        item_name: 'Login',
+        link: 'login',
+      },
+      {
+        item_name: 'Register',
+        link: 'register',
+
       },
     ],
   },

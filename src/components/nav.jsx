@@ -3,12 +3,10 @@ import clsx from 'clsx'
 import PropTypes from 'prop-types'
 import { useContext } from 'react'
 import { Link } from 'react-router'
-import { Store } from './cartContext'
+import { Store } from './productContext'
 
 export function Nav({ dark, toggle }) {
-
-const {cartProduct}=useContext(Store)
-
+  const { cartProduct } = useContext(Store)
 
 
   return (
@@ -26,7 +24,10 @@ const {cartProduct}=useContext(Store)
       )}
     >
       <div>
-        <h2 className="text-2xl"><Link to ="/">{data.nav.brand}</Link></h2>
+        <h2 className="text-2xl">
+          <Link to="/">{data.nav.brand}</Link>
+        </h2>
+
       </div>
       <div className="flex flex-row gap-4">
         {data.nav.nav_item.map((item) => (
@@ -42,9 +43,11 @@ const {cartProduct}=useContext(Store)
           </li>
          
         ))}
-       <span className="px-4 font-bold text-red-600 bg-amber-100 rounded-4xl">
-  {cartProduct.reduce((total, item) => total + item.quantity, 0)}
-</span>
+
+        <span className="px-4 font-bold text-red-600 bg-amber-100 rounded-4xl">
+          {cartProduct.reduce((total, item) => total + item.quantity, 0)}
+        </span>
+
 
         <label className="relative inline-flex items-center cursor-pointer">
           <input
