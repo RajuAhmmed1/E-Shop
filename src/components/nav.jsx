@@ -8,7 +8,9 @@ import { Store } from './productContext'
 export function Nav({ dark, toggle }) {
   const { cartProduct } = useContext(Store)
 
+
   return (
+   
     <div
       className={clsx(
         'w-full',
@@ -25,6 +27,7 @@ export function Nav({ dark, toggle }) {
         <h2 className="text-2xl">
           <Link to="/">{data.nav.brand}</Link>
         </h2>
+
       </div>
       <div className="flex flex-row gap-4">
         {data.nav.nav_item.map((item) => (
@@ -38,10 +41,13 @@ export function Nav({ dark, toggle }) {
               {item.item_name}
             </Link>
           </li>
+         
         ))}
+
         <span className="px-4 font-bold text-red-600 bg-amber-100 rounded-4xl">
           {cartProduct.reduce((total, item) => total + item.quantity, 0)}
         </span>
+
 
         <label className="relative inline-flex items-center cursor-pointer">
           <input

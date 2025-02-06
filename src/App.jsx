@@ -8,6 +8,7 @@ import Login from './authentication/login'
 import Profile from './authentication/profile'
 import Register from './authentication/registration'
 
+
 function App() {
   const [dark, setDark] = useState(false)
   const toggle = () => {
@@ -15,6 +16,7 @@ function App() {
   }
 
   return (
+
     <>
       <Router>
         <Nav dark={dark} toggle={toggle} />
@@ -27,6 +29,7 @@ function App() {
         </Routes>
       </Router>
     </>
+
   )
 }
 
